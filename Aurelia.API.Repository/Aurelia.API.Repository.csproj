@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="1.50.7" />
+    <PackageReference Include="Npgsql" Version="4.0.4" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aurelia.API.Entities\Aurelia.API.Entities.csproj" />
+    <ProjectReference Include="..\Aurelia.API.Repository.Interfaces\Aurelia.API.Repository.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

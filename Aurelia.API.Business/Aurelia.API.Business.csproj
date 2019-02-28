@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aurelia.API.Business.Interfaces\Aurelia.API.Business.Interfaces.csproj" />
+    <ProjectReference Include="..\Aurelia.API.Entities\Aurelia.API.Entities.csproj" />
+    <ProjectReference Include="..\Aurelia.API.Repository.Interfaces\Aurelia.API.Repository.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>
