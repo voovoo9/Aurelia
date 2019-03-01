@@ -14,27 +14,60 @@ namespace Aurelia.API.Repository
     {
         public void AddForm(Form form)
         {
-            db.Execute("AddForm", new { form.Email, form.FirstName, form.LastName }, commandType: CommandType.StoredProcedure);
+            db.Execute("INSERT INTO Form (Email, FirstName, LastName) VALUES (@Email, @FirstName, @LastName)", new { form.Email, form.FirstName, form.LastName });
         }
 
         public void DeleteForm(int id)
         {
-            db.Execute("DeleteForm", id, commandType: CommandType.StoredProcedure);
+            db.Execute("DELETE FROM Form WHERE Id=@id", id);
         }
 
         public List<Form> GetAllForms()
         {
-            return db.Query<Form>("GetAllForms", commandType: CommandType.StoredProcedure).ToList();
+            return db.Query<Form>("SELECT * FROM Form").ToList();
         }
 
         public Form GetFormById(int id)
         {
-            return db.Query<Form>("GetFormById", id, commandType: CommandType.StoredProcedure).SingleOrDefault();
+            return db.Query<Form>("SELECT * FROM Form WHERE Id = @id", id).SingleOrDefault();
         }
 
         public void UpdateForm(Form form)
         {
-            db.Execute("UpdateForm", new { form.Email, form.FirstName, form.LastName }, commandType: CommandType.StoredProcedure);
+            var sql =
+                "UPDATE Form " +
+                "SET FirstName = @FirstName, " +
+                "    LastName  = @LastName, " +
+                "    Email     = @Email, " +
+                "WHERE Id = @id";
+            this.db.Execute(sql, form);
         }
+
+        //Kod za stored procedures:
+
+        //public void AddForm(Form form)
+        //{
+        //    db.Execute("AddForm", new { form.Email, form.FirstName, form.LastName }, commandType: CommandType.StoredProcedure);
+        //}
+
+        //public void DeleteForm(int id)
+        //{
+        //    db.Execute("DeleteForm", id, commandType: CommandType.StoredProcedure);
+        //}
+
+        //public List<Form> GetAllForms()
+        //{
+        //    return db.Query<Form>("GetAllForms", commandType: CommandType.StoredProcedure).ToList();
+        //}
+
+        //public Form GetFormById(int id)
+        //{
+        //    return db.Query<Form>("GetFormById", id, commandType: CommandType.StoredProcedure).SingleOrDefault();
+        //}
+
+        //public void UpdateForm(Form form)
+        //{
+        //    db.Execute("UpdateForm", new { form.Email, form.FirstName, form.LastName }, commandType: CommandType.StoredProcedure);
+        //}
     }
 }

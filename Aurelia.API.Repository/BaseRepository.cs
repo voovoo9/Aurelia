@@ -13,7 +13,7 @@ namespace Aurelia.API.Repository
         
         public BaseRepository()
         {
-            string connectionString = "Host=localhost;Username=<Vukasin Vukotic>;Password=<mypass>;Database=AureliaAPIData";
+            string connectionString = "Host=localhost;Username=postgres;password=27Rakun27;Database=AureliaAPI";
             db = new NpgsqlConnection(connectionString);
         }
     }

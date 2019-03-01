@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [Produces("api/json")] //da li je ispravno?
+    //[Produces("api/json")] //da li je ispravno?
     [Route("api/[controller]")]
     [ApiController]
     public class FormController : ControllerBase
@@ -20,18 +20,14 @@ namespace API.Controllers
         {
             _formManager = formManager;
         }
-        [HttpGet]
-        public Form Get()
-        {
-            return new Form() { Email = "masdfmds", Id = 1, FirstName = "msedfcm", LastName = "mdfms" };
-        }
 
-        //// GET: api/Form
-        //[HttpGet]
-        //public List<Form> Get()
-        //{
-        //    return _formManager.GetAllForms();
-        //}
+
+        // GET: api/Form
+        [HttpGet]
+        public List<Form> Get()
+        {
+            return _formManager.GetAllForms();
+        }
 
         // GET: api/Form/5
         [HttpGet("{id}")]
@@ -60,5 +56,13 @@ namespace API.Controllers
         {
             _formManager.DeleteForm(id);
         }
+
+
+        //****Proba****
+        //[HttpGet]
+        //public object Get()
+        //{
+        //    return new { Email = "masdfmds", Id = 1, FirstName = "msedfcm", LastName = "mdfms" };
+        //}
     }
 }
