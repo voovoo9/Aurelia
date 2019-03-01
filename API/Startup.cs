@@ -30,6 +30,7 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            //Dodato
             services.AddTransient<IFormManager, FormManager>();
             services.AddTransient<IFormRepository, FormRepository>();
         }

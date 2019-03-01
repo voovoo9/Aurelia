@@ -9,12 +9,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    //[Produces("api/json")] //da li je ispravno?
     [Route("api/[controller]")]
     [ApiController]
     public class FormController : ControllerBase
     {
-        IFormManager _formManager;
+        private readonly IFormManager _formManager;
 
         public FormController(IFormManager formManager)
         {
@@ -22,39 +21,60 @@ namespace API.Controllers
         }
 
 
-        // GET: api/Form
-        [HttpGet]
-        public List<Form> Get()
-        {
-            return _formManager.GetAllForms();
-        }
+        //// GET: api/Form
+        //[HttpGet]
+        //public IActionResult Get()
+        //{
+        //    var result = _formManager.GetAllForms();
+        //    return Ok(result);
+        //}
 
         // GET: api/Form/5
         [HttpGet("{id}")]
-        public Form Get(int id)
+        public IActionResult Get(int id)
         {
-            return _formManager.GetFormById(id);
+            var result = _formManager.GetFormById(id);
+
+            if (result == null)
+                return NotFound();
+            return Ok(result);
         }
 
         // POST: api/Form
         [HttpPost]
-        public void Post([FromBody] Form form)
+        public IActionResult Post([FromBody] Form form)
         {
-            _formManager.AddForm(form);
+            if (ModelState.IsValid)
+            {
+                _formManager.AddForm(form);
+                return this.Ok(form.Id);
+            }
+            else return this.StatusCode(StatusCodes.Status422UnprocessableEntity);
         }
 
         // PUT: api/Form/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Form form)
+        public IActionResult Put(int id, [FromBody] Form form)
         {
-            _formManager.UpdateForm(form);
+            if (ModelState.IsValid)
+            {
+                _formManager.UpdateForm(form);
+                return this.Ok(form.Id);
+            }
+            else return this.StatusCode(StatusCodes.Status422UnprocessableEntity);
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            var deleted = _formManager.GetFormById(id);
+            if(deleted == null)
+            {
+                return NotFound();
+            }
             _formManager.DeleteForm(id);
+            return Ok();
         }
 
 
