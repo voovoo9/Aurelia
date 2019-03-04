@@ -12,7 +12,7 @@ namespace Aurelia.API.Repository
 {
     public class FormRepository : BaseRepository, IFormRepository
     {
-        public void AddForm(Form form)
+        public void AddForm (Form form)
         {
             db.Execute("INSERT INTO Form (Email, FirstName, LastName) VALUES (@Email, @FirstName, @LastName)", new { form.Email, form.FirstName, form.LastName });
         }
@@ -40,7 +40,7 @@ namespace Aurelia.API.Repository
                 "    LastName  = @LastName, " +
                 "    Email     = @Email, " +
                 "WHERE Id = @id";
-            db.Execute(sql, new { form.Id, form.Email, form.FirstName, form.LastName });
+            db.Execute(sql, new {  form.Email, form.FirstName, form.LastName });
         }
 
         //Kod za stored procedures:
