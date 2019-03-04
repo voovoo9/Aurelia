@@ -32,7 +32,7 @@ namespace Aurelia.API.Repository
             return db.Query<Form>("SELECT * FROM Form WHERE Id = @id", new { id }).SingleOrDefault();
         }
 
-        public void UpdateForm(Form form)
+        public void UpdateForm(int id, Form form)
         {
             var sql =
                 "UPDATE Form " +
@@ -40,7 +40,7 @@ namespace Aurelia.API.Repository
                 "    LastName  = @LastName, " +
                 "    Email     = @Email, " +
                 "WHERE Id = @id";
-            db.Execute(sql, new {  form.Email, form.FirstName, form.LastName });
+            db.Execute(sql, new {  form.Email, form.FirstName, form.LastName, form.Id });
         }
 
         //Kod za stored procedures:

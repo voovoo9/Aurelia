@@ -36,9 +36,9 @@ namespace Aurelia.API.Business
             return _formRepository.GetFormById(id);
         }
 
-        public void UpdateForm(Form form)
+        public void UpdateForm(int id, Form form)
         {
-            _formRepository.UpdateForm(form);
+            _formRepository.UpdateForm(id, form);
         }
     }
 }

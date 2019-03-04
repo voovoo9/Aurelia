@@ -15,6 +15,6 @@ namespace Aurelia.API.Business.Interfaces
 
         Form GetFormById(int id);
 
-        void UpdateForm(Form form);
+        void UpdateForm(int id, Form form);
     }
 }
