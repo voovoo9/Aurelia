@@ -40,7 +40,7 @@ namespace Aurelia.API.Repository
                 "    LastName  = @LastName, " +
                 "    Email     = @Email " +
                 "WHERE Id = @id";
-            db.Execute(sql, new { form.Email, form.FirstName, form.LastName, form.Id});
+            db.Execute(sql, new { form.Email, form.FirstName, form.LastName, id});
         }
 
         //Kod za stored procedures:
