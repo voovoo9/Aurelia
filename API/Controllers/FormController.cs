@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class FormController : ControllerBase
     {
@@ -41,7 +41,7 @@ namespace API.Controllers
         }
 
         // POST: api/Form
-        [HttpPost]
+        [HttpPost("create")]
         public IActionResult Post([FromBody] Form form)
         {
             if (ModelState.IsValid)
@@ -53,7 +53,7 @@ namespace API.Controllers
         }
 
         // PUT: api/Form/5
-        [HttpPut("{id}")]
+        [HttpPut("edit/{id}")]
         public IActionResult Put(int id, [FromBody] Form form)
         {
             if (ModelState.IsValid)
