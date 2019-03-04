@@ -38,9 +38,9 @@ namespace Aurelia.API.Repository
                 "UPDATE Form " +
                 "SET FirstName = @FirstName, " +
                 "    LastName  = @LastName, " +
-                "    Email     = @Email, " +
+                "    Email     = @Email " +
                 "WHERE Id = @id";
-            db.Execute(sql, new {  form.Email, form.FirstName, form.LastName, form.Id });
+            db.Execute(sql, new { form.Email, form.FirstName, form.LastName, form.Id});
         }
 
         //Kod za stored procedures:
