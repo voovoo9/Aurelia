@@ -21,13 +21,13 @@ namespace API.Controllers
         }
 
 
-        //// GET: api/Form
-        //[HttpGet]
-        //public IActionResult Get()
-        //{
-        //    var result = _formManager.GetAllForms();
-        //    return Ok(result);
-        //}
+        // GET: api/Form
+        [HttpGet]
+        public IActionResult Get()
+        {
+            var result = _formManager.GetAllForms();
+            return Ok(result);
+        }
 
         // GET: api/Form/5
         [HttpGet("{id}")]
@@ -47,7 +47,7 @@ namespace API.Controllers
             if (ModelState.IsValid)
             {
                 _formManager.AddForm(form);
-                return this.Ok(form.Id);
+                return this.Ok(form);
             }
             else return this.StatusCode(StatusCodes.Status422UnprocessableEntity);
         }

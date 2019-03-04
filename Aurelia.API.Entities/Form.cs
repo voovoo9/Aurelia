@@ -14,7 +14,7 @@ namespace Aurelia.API.Entities
         [RegularExpression(@"^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*"+ "@"+ @"((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))$")]
         public string Email { get; set; }
         [Required]
-        [StringLength(50, ErrorMessage = "FirstName neme is required"))]
+        [StringLength(50, ErrorMessage = "FirstName neme is required")]
         public string FirstName { get; set; }
         [Required]
         [StringLength(50, ErrorMessage = "LastName neme is required")]

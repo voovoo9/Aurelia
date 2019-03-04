@@ -19,7 +19,7 @@ namespace Aurelia.API.Repository
 
         public void DeleteForm(int id)
         {
-            db.Execute("DELETE FROM Form WHERE Id=@id", id);
+            db.Execute("DELETE FROM Form WHERE Id=@id", new { id });
         }
 
         public List<Form> GetAllForms()
