@@ -41,7 +41,7 @@ namespace API.Controllers
         }
 
         // POST: api/Form
-        [HttpPost("create")]
+        [HttpPost]
         public IActionResult Post([FromBody] Form form)
         {
             if (ModelState.IsValid)
