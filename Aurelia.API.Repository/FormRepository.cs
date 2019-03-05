@@ -14,7 +14,7 @@ namespace Aurelia.API.Repository
     {
         public void AddForm (Form form)
         {
-            db.Execute("INSERT INTO Form (Email, FirstName, LastName) VALUES (@Email, @FirstName, @LastName)", new { form.Email, form.FirstName, form.LastName });
+            db.Execute("INSERT INTO Form (FirstName, LastName, Email) VALUES (@firstName, @lastName, @email)", new { form.FirstName, form.LastName, form.Email });
         }
 
         public void DeleteForm(int id)
@@ -36,9 +36,9 @@ namespace Aurelia.API.Repository
         {
             var sql =
                 "UPDATE Form " +
-                "SET FirstName = @FirstName, " +
-                "    LastName  = @LastName, " +
-                "    Email     = @Email " +
+                "SET FirstName = @firstName, " +
+                "    LastName  = @lastName, " +
+                "    Email     = @email " +
                 "WHERE Id = @id";
             db.Execute(sql, new { form.Email, form.FirstName, form.LastName, id});
         }

@@ -15,6 +15,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aurelia.API.Business.Interf
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aurelia.API.Business", "Aurelia.API.Business\Aurelia.API.Business.csproj", "{E2CF7A85-6513-434C-AFD0-4E4243AE69F4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLogic", "BusinessLogic", "{A4D0971A-E335-43DD-A105-00A8D320A138}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{49A12D6D-89E9-464E-845D-DB77159AE248}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +52,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F47F4867-DC39-4261-BB77-D437738972AF} = {49A12D6D-89E9-464E-845D-DB77159AE248}
+		{2D505579-F2A0-4EED-A0A4-59C16E7F53AE} = {49A12D6D-89E9-464E-845D-DB77159AE248}
+		{6CEC1974-B6C1-41A6-B17A-34409D5AE1E9} = {49A12D6D-89E9-464E-845D-DB77159AE248}
+		{EE1599EC-2798-4D36-B4C5-1B1D79129A21} = {A4D0971A-E335-43DD-A105-00A8D320A138}
+		{E2CF7A85-6513-434C-AFD0-4E4243AE69F4} = {A4D0971A-E335-43DD-A105-00A8D320A138}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BD536175-F52A-45D6-A2DB-F6BAAF2B4CC5}
