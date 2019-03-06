@@ -59,7 +59,7 @@ namespace API.Controllers
             if (ModelState.IsValid)
             {
                 _formManager.UpdateForm(id, form);
-                return this.Ok(form.Id);
+                return this.Ok(form);
             }
             else return this.StatusCode(StatusCodes.Status422UnprocessableEntity);
         }
