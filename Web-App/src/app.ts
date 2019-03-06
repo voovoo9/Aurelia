@@ -1,12 +1,13 @@
 import { Aurelia } from "aurelia-framework";
 import { PLATFORM } from "aurelia-pal";
-import { fetchUsers, fetchUser } from "./services/UserService";
+import { fetchUsers, fetchUser, fetchUsersById } from "./services/UserService";
 
 export class App {
   public name: string = "";
   public surname: string = "";
   public email: string = "";
   public usersLoc: any;
+  public rememberMe: false;
 
 
   public validate() {
@@ -29,7 +30,7 @@ export class App {
       }
       fetchUser(model)
       .then(response => {
-        console.log(response);
+        (response);
       })
     }
     
@@ -39,9 +40,11 @@ export class App {
     fetchUsers()
     .then(users => {
       this.usersLoc = users;
-      document.getElementById(users)
+      (document.getElementById("getUsers"));
     });
 
+    
+    fetchUsersById(2).then(result => console.log(result));
   }
 
 }

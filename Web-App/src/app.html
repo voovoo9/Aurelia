@@ -9,7 +9,7 @@
             type="text"
             value.bind="name"
             placeholder="Name"
-            reqired
+            required
           />
         </div>
         <div class="col-md-4 mb-3">
@@ -19,7 +19,7 @@
             type="text"
             value.bind="surname"
             placeholder="Last Name"
-            reqired
+            required
           />
         </div>
         <div class="col-md-4 mb-3">
@@ -37,6 +37,7 @@
               <input
                 class="form-check-input"
                 type="checkbox"
+                checked.bind="rememberMe"
                 id="autoSizingCheck2"
               />
               <label class="form-check-label" for="autoSizingCheck2">
@@ -57,8 +58,11 @@
         </div>
       </div>
     </form>
+    <!-- <div>
+      <button id="getUsers" type="button" class="btn btn-info"click.delegate="fetchUsers">Get Users</button>
+    </div> -->
     <ul>
-      <li id="users">${user.email}</li>
+      <li repeat.for="user of usersLoc">User: ${user.name}</li>
     </ul>
   </div>
 </template>

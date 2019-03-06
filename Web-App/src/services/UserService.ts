@@ -7,7 +7,8 @@ export const fetchUsers = () => {
     .then(response => {
       return response.json()
       .then(data => {
-        return data;
+          console.log(data)
+         return data;
         })
     })
     // .then(response => response.map(item =>new User(item.id, item.email, item.firstName, item.lastName))
@@ -27,10 +28,6 @@ export const fetchUser = (model) => {
       const {id, email, firstName, lastName} = user;
       return new User(id, email, firstName, lastName)
     })
-    // .then(data => {
-    //   console.log(data)
-    //   return data;
-    // })
   })
 }
 
@@ -44,3 +41,18 @@ export const fetchUser = (model) => {
 //     return response.json()
 //   })
 // }
+
+
+export const fetchUsersById = (id) => {
+  console.log('fetch GET');
+  return fetch(API_BASE_ENDPOINT + "/" + id)
+    .then(response => {
+      return response.json()
+      .then(data => {
+        console.log(data)
+         return data;
+        })
+    })
+    // .then(response => response.map(item =>new User(item.id, item.email, item.firstName, item.lastName))
+    // );
+};
