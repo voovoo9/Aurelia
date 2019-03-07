@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Aurelia.API.Business.Interfaces;
 using Aurelia.API.Entities;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +12,7 @@ namespace API.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    [DisableCors]
     public class FormController : ControllerBase
     {
         private readonly IFormManager _formManager;
