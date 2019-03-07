@@ -19,22 +19,18 @@ export class App {
   }
   
   public register() {
-    if (!this.validate()) {
-      return;
-    } else {
+    if (this.validate()) {
+
       var model = {
         // "id": 0,
         "email": this.email,
         "firstName": this.name,
         "lastName": this.surname,
       }
+      
       fetchUser(model)
-      .then(response => {
-        (response);
-      })
-    }
-    
-  }
+      .then(response => alert("Uspesno ste registrovani!"));
+  }}
   
   attached(){
     fetchUsers()
