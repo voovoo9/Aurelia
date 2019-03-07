@@ -58,11 +58,8 @@
         </div>
       </div>
     </form>
-    <!-- <div>
-      <button id="getUsers" type="button" class="btn btn-info"click.delegate="fetchUsers">Get Users</button>
-    </div> -->
     <ul>
-      <li repeat.for="user of usersLoc">User: ${user.name}</li>
+      <li repeat.for="user of usersLoc">${user.firstName} ${user.lastName}</li>
     </ul>
   </div>
 </template>

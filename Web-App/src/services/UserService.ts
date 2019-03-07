@@ -2,7 +2,7 @@ import { User } from "../entities/User";
 import { API_BASE_ENDPOINT } from '../shared/constants';
 
 export const fetchUsers = () => {
-  console.log('fetch GET');
+  // console.log('fetch GET');
   return fetch(API_BASE_ENDPOINT)
     .then(response => {
       return response.json()
@@ -15,21 +15,24 @@ export const fetchUsers = () => {
     // );
 };
 
-export const fetchUser = (model) => {
-  // const create = "/create"
-  console.log("fetch POSTS")
-  return fetch(API_BASE_ENDPOINT,{
-    method: "POST",
-    body: JSON.stringify(model)
+export const registerUser = (model) => {
+
+  return fetch(API_BASE_ENDPOINT, {
+  method: "POST",
+  body: JSON.stringify(model),
+  headers: {
+      'Content-Type': 'application/json',
+  }
   })
+  
   .then(function(response){
-    return response.json()
-    .then(function(user){
-      const {id, email, firstName, lastName} = user;
-      return new User(id, email, firstName, lastName)
-    })
+  return response.json()
+  .then(data => {return data})
+  .catch( error => {return })
   })
-}
+
+
+  }
 
 // export const deleteUser = (id) => {
 //   console.log("deleteUser")
