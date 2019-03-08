@@ -1,49 +1,35 @@
 import { Aurelia } from "aurelia-framework";
 import { PLATFORM } from "aurelia-pal";
-import { registerUser } from "./services/UserService";
-import { fetchUsers, fetchUsersById } from "./services/UserService";
+import { Router, RouterConfiguration } from "aurelia-router";
 
 export class App {
-  public name: string = "";
-  public surname: string = "";
-  public email: string = "";
-  public usersLoc: any;
-  public rememberMe: false;
+  router: Router;
 
-  public validate() {
-    if (this.name === "" || this.surname === "") {
-      alert("All fields are required!");
-      return false;
-    }
-    return true;
-  }
-
-  public register() {
-    
-    if (this.validate()) {
-      var model = {
-        // "id": 0,
-        // email: this.email,
-        firstName: this.name,
-        lastName: this.surname
-      };
-
-      registerUser(model)
-      .then(function(user){
-        alert("Uspesno ste registrovani!");
-        console.log(user);
-      });
-
-    }
-  }
-
-  attached() {
-    fetchUsers()
-    .then(users => {
-      this.usersLoc = users;
-      document.getElementById("getUsers");
-    });
-
-    fetchUsersById(2).then(result => console.log(result));
+  configureRouter(config: RouterConfiguration, router: Router): void {
+    this.router = router;
+    config.title = "Aurelia";
+    config.options.pushState = true;
+    config.options.root = "/";
+    config.map([
+      {
+        route: ["", "home"],
+        name: "home",
+        moduleId: PLATFORM.moduleName("./view/home"),
+        nav: true
+      },
+      {
+        route: "registration",
+        name: "registration",
+        moduleId: PLATFORM.moduleName("./view/registration")
+        // nav: true
+      },
+      {
+        route: "listOfUsers",
+        name: "listOfUsers",
+        moduleId: PLATFORM.moduleName("./view/listOfUsers"),
+        nav: true,
+        title: "List of users"
+      }
+    ]);
   }
 }

@@ -1,65 +1,9 @@
 <template>
-  <div class="container" css="margin-top: ${50}px">
-    <form class="form-row align-items-center ">
-      <div class="container form-row ">
-        <div class="col-md-4 mb-3 ">
-          <label>First name</label>
-          <input
-            class="form-control"
-            type="text"
-            value.bind="name"
-            placeholder="Name"
-            required
-          />
-        </div>
-        <div class="col-md-4 mb-3">
-          <label>Last name</label>
-          <input
-            class="form-control"
-            type="text"
-            value.bind="surname"
-            placeholder="Last Name"
-            required
-          />
-        </div>
-        <div class="col-md-4 mb-3">
-          <label>E-mail</label>
-          <input
-            class="form-control"
-            type="text"
-            value.bind="email"
-            placeholder="E-mail"
-          />
-        </div>
-        <div class="submit-area d-flex justify-content-between" css="width: ${100}% ">
-          <div class="col-auto my-1">
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                checked.bind="rememberMe"
-                id="autoSizingCheck2"
-              />
-              <label class="form-check-label" for="autoSizingCheck2">
-                Remember me
-              </label>
-            </div>
-          </div>
-          <div>
-            <button type="button" class="btn btn-primary">Login</button>
-            <button
-              class="btn btn-outline-success "
-              type="submit"
-              click.delegate="register()"
-            >
-              Register here
-            </button>
-          </div>
-        </div>
-      </div>
-    </form>
-    <ul>
-      <li repeat.for="user of usersLoc">${user.firstName} ${user.lastName}</li>
-    </ul>
+  <div>
+    <require from="./view/common/header.html"></require>
+    <require from="./view/common/footer.html"></require>
+    <header></header>
+    <router-view></router-view>
+    <footer></footer>
   </div>
 </template>

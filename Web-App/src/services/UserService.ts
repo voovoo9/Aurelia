@@ -1,5 +1,5 @@
-import { User } from "../entities/User";
 import { API_BASE_ENDPOINT } from '../shared/constants';
+import { User } from "../entities/User";
 
 export const fetchUsers = () => {
   // console.log('fetch GET');
